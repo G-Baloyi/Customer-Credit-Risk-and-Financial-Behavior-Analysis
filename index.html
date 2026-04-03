@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Credit Risk & Financial Behavior Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f172a;
+            color: #f1f5f9;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            margin-top: 10px;
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .dashboard {
+            margin: 60px 0;
+        }
+
+        .dashboard h2 {
+            margin-bottom: 10px;
+            font-size: 1.8rem;
+        }
+
+        .dashboard p {
+            margin-bottom: 20px;
+            color: #cbd5f5;
+        }
+
+        .tableau-container {
+            width: 100%;
+            height: 600px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: #1e293b;
+            padding: 6px 12px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 0.8rem;
+            color: #38bdf8;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Customer Credit Risk & Financial Behavior Analysis</h1>
+    <p>Interactive Tableau Dashboards</p>
+
+    <div>
+        <span class="tag">Tableau</span>
+        <span class="tag">Data Analysis</span>
+        <span class="tag">Finance</span>
+        <span class="tag">Risk Modeling</span>
+    </div>
+</header>
+
+<div class="container">
+
+    <!-- Dashboard 1 -->
+    <div class="dashboard">
+        <h2>Dashboard 1: Credit Risk Drivers</h2>
+        <p>
+            This dashboard explores the key drivers of credit risk, including loan characteristics,
+            customer demographics, and portfolio-level risk distribution.
+        </p>
+
+        <div class="tableau-container">
+            <iframe src="https://public.tableau.com/views/IntegratedCreditRiskCustomerBehaviorAnalyticsDashboard/Dashboard1-CreditRiskDrivers?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"></iframe>
+        </div>
+    </div>
+
+    <!-- Dashboard 2 -->
+    <div class="dashboard">
+        <h2>Dashboard 2: Customer Financial Behavior</h2>
+        <p>
+            This dashboard analyzes customer transaction behavior, net cash flow, and financial stability
+            to identify high-risk segments and support data-driven lending decisions.
+        </p>
+
+        <div class="tableau-container">
+            <iframe src="<div class='tableauPlaceholder' id='viz1775184302418' style='position: relative'><noscript><a href='#'><img alt='Customer Financial Behavior &amp; Risk InsightsThis dashboard analyzes customer financial behavior across the portfolio. It highlights cash flow stability, spending patterns, and financial variability, providing actionable insights for identifying high-risk  ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;In&#47;IntegratedCreditRiskCustomerBehaviorAnalyticsDashboard&#47;Dashboard2CustomerFinancialBehavior&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='IntegratedCreditRiskCustomerBehaviorAnalyticsDashboard&#47;Dashboard2CustomerFinancialBehavior' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;In&#47;IntegratedCreditRiskCustomerBehaviorAnalyticsDashboard&#47;Dashboard2CustomerFinancialBehavior&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1775184302418');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1200px';vizElement.style.height='827px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1200px';vizElement.style.height='827px';} else { vizElement.style.width='100%';vizElement.style.height='1927px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>"></iframe>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    Built by Goitsemang Baloyi • 2026
+</footer>
+
+</body>
+</html>
