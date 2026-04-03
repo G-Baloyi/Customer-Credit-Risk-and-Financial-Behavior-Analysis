@@ -4,125 +4,134 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Customer Credit Risk & Financial Behavior Analysis</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <title>Customer Credit Risk & Financial Behavior Analysis | Financial Intelligence Suite</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
  
+    /* ========== REFINED PROFESSIONAL COLOR SCHEME ========== */
     :root {
-      --bg:         #0a0d14;
-      --surface:    #111623;
-      --border:     #1e2740;
-      --accent:     #3b82f6;
-      --accent2:    #f59e0b;
-      --accent3:    #10b981;
-      --text:       #e8edf7;
-      --muted:      #6b7a99;
-      --danger:     #ef4444;
-      --card-glow:  rgba(59,130,246,0.08);
-      --ink:        #e8edf7;
-      --rule:       #1e2740;
-      --text-body:  #a0aec0;
-      --text-muted: #6b7a99;
-      --shadow:     0 4px 32px rgba(0,0,0,0.4);
-      --green:      #10b981;
-      --green-dim:  rgba(16,185,129,0.1);
-      --amber:      #f59e0b;
-      --amber-dim:  rgba(245,158,11,0.1);
-      --accent-dim: rgba(59,130,246,0.1);
+      --bg-primary:    #f7f9fc;
+      --bg-surface:    #ffffff;
+      --bg-elevated:   #ffffff;
+      --text-primary:  #1a2634;
+      --text-secondary:#4a5b6e;
+      --text-muted:    #7c8b9c;
+      --border-light:  #e2e8f0;
+      --border-med:    #cbd5e1;
+      --accent:        #2c5f8a;
+      --accent-light:  #eef2f8;
+      --accent-glow:   rgba(44,95,138,0.08);
+      --success:       #2b7a4b;
+      --success-light: #e8f3ed;
+      --warning:       #c17a2b;
+      --warning-light: #fef5e8;
+      --danger:        #b33b2c;
+      --danger-light:  #fef0ee;
+      --shadow-sm:     0 1px 3px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
+      --shadow-md:     0 4px 12px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.03);
+      --shadow-lg:     0 12px 28px rgba(0,0,0,0.08);
     }
  
     html { scroll-behavior: smooth; }
  
     body {
-      font-family: 'Syne', sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
       min-height: 100vh;
       overflow-x: hidden;
+      line-height: 1.5;
     }
  
-    /* grid + blobs */
+    /* subtle background texture */
     body::before {
       content: '';
-      position: fixed; inset: 0; z-index: 0;
-      background-image:
-        linear-gradient(rgba(59,130,246,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(59,130,246,0.03) 1px, transparent 1px);
-      background-size: 40px 40px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(var(--border-light) 0.5px, transparent 0.5px);
+      background-size: 24px 24px;
+      opacity: 0.3;
       pointer-events: none;
-    }
- 
-    .blob {
-      position: fixed; border-radius: 50%; filter: blur(120px);
-      pointer-events: none; z-index: 0; opacity: 0.2;
-      animation: drift 18s ease-in-out infinite alternate;
-    }
-    .blob-1 { width: 600px; height: 600px; background: #1d4ed8; top: -200px; left: -100px; animation-duration: 20s; }
-    .blob-2 { width: 400px; height: 400px; background: #d97706; bottom: -100px; right: -80px; animation-duration: 15s; animation-delay: -7s; }
-    .blob-3 { width: 300px; height: 300px; background: #065f46; top: 40%; left: 50%; animation-duration: 25s; animation-delay: -3s; }
-    @keyframes drift {
-      from { transform: translate(0,0) scale(1); }
-      to   { transform: translate(40px,30px) scale(1.08); }
+      z-index: 0;
     }
  
     .page { position: relative; z-index: 1; }
  
-    /* NAV */
+    /* ========== NAVIGATION ========== */
     nav {
-      background: rgba(10,13,20,0.9);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-light);
       padding: 0 52px;
-      display: flex; align-items: center; justify-content: space-between;
-      height: 56px;
-      position: sticky; top: 0; z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      backdrop-filter: blur(8px);
+      background: rgba(255,255,255,0.96);
     }
-    .nav-left { display: flex; align-items: center; gap: 20px; }
+    .nav-left { display: flex; align-items: center; gap: 24px; }
     .nav-wordmark {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px; font-weight: 500;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--muted);
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
     }
-    .nav-sep { width: 1px; height: 18px; background: var(--border); }
-    .nav-title-short { font-size: 13px; font-weight: 600; color: var(--text); }
-    .nav-tabs {
-      display: flex; gap: 4px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px; padding: 4px;
+    .nav-sep { width: 1px; height: 20px; background: var(--border-light); }
+    .nav-title-short {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
     }
+    .nav-tabs { display: flex; gap: 4px; }
     .nav-tab {
-      padding: 8px 18px; border-radius: 7px;
-      font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500;
-      letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--muted);
-      background: transparent; border: none; cursor: pointer;
-      transition: all 0.2s;
+      padding: 0 20px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.2s ease;
     }
-    .nav-tab:hover { color: var(--text); }
+    .nav-tab:hover { color: var(--accent); }
     .nav-tab.active {
-      background: var(--accent); color: #fff;
-      box-shadow: 0 0 20px rgba(59,130,246,0.35);
+      color: var(--accent);
+      border-bottom-color: var(--accent);
     }
  
-    /* HERO - SIMPLIFIED */
+    /* ========== HERO SECTION - SIMPLIFIED ========== */
     .hero {
       padding: 60px 52px 48px;
-      border-bottom: 1px solid var(--border);
       text-align: center;
       max-width: 900px;
       margin: 0 auto;
+      border-bottom: 1px solid var(--border-light);
     }
     .hero-eyebrow {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px; font-weight: 500;
-      letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 20px;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
     .hero-eyebrow::before,
     .hero-eyebrow::after {
@@ -130,27 +139,31 @@
       width: 30px;
       height: 1px;
       background: var(--accent);
+      opacity: 0.5;
     }
     .hero h1 {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(28px, 4vw, 44px);
-      font-weight: 400;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 4vw, 44px);
+      font-weight: 500;
       line-height: 1.2;
-      color: var(--text);
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
       margin-bottom: 20px;
     }
-    .hero h1 span { font-style: italic; color: var(--accent2); }
+    .hero h1 span { 
+      font-style: italic;
+      color: var(--accent);
+    }
     .hero-abstract {
-      font-family: 'DM Mono', monospace;
-      font-size: 13px;
-      font-weight: 300;
+      font-size: 15px;
+      font-weight: 400;
       line-height: 1.7;
-      color: var(--muted);
+      color: var(--text-secondary);
       max-width: 700px;
       margin: 0 auto;
     }
  
-    /* SECTION LABEL */
+    /* ========== SECTION LABELS ========== */
     .section-label {
       display: flex;
       align-items: center;
@@ -158,146 +171,166 @@
       padding: 40px 52px 20px;
     }
     .section-label-text {
-      font-family: 'DM Mono', monospace;
-      font-size: 9px;
-      letter-spacing: 0.22em;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: var(--text-muted);
       white-space: nowrap;
     }
-    .section-label-rule { flex: 1; height: 1px; background: var(--border); }
+    .section-label-rule { flex: 1; height: 1px; background: var(--border-light); }
  
-    /* DASHBOARD SELECTOR */
+    /* ========== DASHBOARD CARDS ========== */
     .dash-selector {
       padding: 0 52px 32px;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      gap: 24px;
     }
     .dash-card {
-      border: 1px solid var(--border);
-      background: var(--surface);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: 20px;
       cursor: pointer;
-      transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
-      position: relative;
+      transition: all 0.25s ease;
       overflow: hidden;
-      border-radius: 12px;
+      box-shadow: var(--shadow-sm);
+    }
+    .dash-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--border-med);
+    }
+    .dash-card.active {
+      border-color: var(--accent);
+      box-shadow: 0 8px 24px rgba(44,95,138,0.12);
     }
     .dash-card::before {
       content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      background: var(--border); transition: background 0.25s;
-    }
-    .dash-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
-    .dash-card.active {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 1px var(--accent), 0 8px 40px rgba(59,130,246,0.2);
+      display: block;
+      height: 3px;
+      background: var(--border-light);
+      transition: background 0.2s;
     }
     .dash-card.active::before { background: var(--accent); }
-    .dash-card-inner { padding: 28px 28px 24px; }
+    .dash-card-inner { padding: 28px 28px 20px; }
     .dc-num {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px; letter-spacing: 0.14em;
-      color: var(--muted); margin-bottom: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 12px;
     }
     .dc-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: 20px; font-weight: 400;
-      color: var(--text); margin-bottom: 10px;
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 12px;
     }
     .dc-desc {
-      font-family: 'DM Mono', monospace;
-      font-size: 12px; font-weight: 300;
-      line-height: 1.7;
-      color: var(--muted); margin-bottom: 20px;
+      font-size: 13px;
+      line-height: 1.65;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
     }
-    .dc-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .dc-tags { display: flex; flex-wrap: wrap; gap: 8px; }
     .dc-tag {
-      font-family: 'DM Mono', monospace;
-      font-size: 9px; letter-spacing: 0.08em;
-      padding: 3px 9px; border: 1px solid var(--border);
-      color: var(--muted);
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      padding: 4px 10px;
       border-radius: 20px;
+      background: var(--accent-light);
+      color: var(--accent);
     }
-    .dc-tag.risk  { border-color: rgba(239,68,68,0.35); color: var(--danger); background: rgba(239,68,68,0.07); }
-    .dc-tag.safe  { border-color: rgba(16,185,129,0.35); color: var(--accent3); background: rgba(16,185,129,0.07); }
-    .dc-tag.amber { border-color: rgba(245,158,11,0.35); color: var(--accent2); background: rgba(245,158,11,0.07); }
+    .dc-tag.risk  { background: var(--danger-light); color: var(--danger); }
+    .dc-tag.safe  { background: var(--success-light); color: var(--success); }
+    .dc-tag.warning { background: var(--warning-light); color: var(--warning); }
     .dc-footer {
-      border-top: 1px solid var(--border);
+      border-top: 1px solid var(--border-light);
       padding: 14px 28px;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      background: var(--bg-primary);
     }
     .dc-cta {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px; letter-spacing: 0.1em;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: var(--text-muted);
       transition: color 0.2s;
     }
     .dash-card:hover .dc-cta,
     .dash-card.active .dc-cta { color: var(--accent); }
     .dc-status {
-      font-family: 'DM Mono', monospace;
-      font-size: 9px;
-      color: var(--muted);
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--text-muted);
     }
-    .dash-card.active .dc-status { color: var(--accent3); }
+    .dash-card.active .dc-status { color: var(--success); }
  
-    /* VIEWER */
+    /* ========== VIEWER SECTION ========== */
     .viewer-wrap { padding: 0 52px 48px; }
     .viewer-topbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 16px 0;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
     }
-    .vtb-left { display: flex; align-items: center; gap: 16px; }
+    .vtb-left { display: flex; align-items: center; gap: 12px; }
     .vtb-indicator {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: var(--accent3);
-      box-shadow: 0 0 0 3px rgba(16,185,129,0.2);
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 0 3px rgba(43,122,75,0.15);
     }
     .vtb-name {
-      font-family: 'DM Serif Display', serif;
-      font-size: 18px; font-style: italic;
-      color: var(--text);
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-style: italic;
+      color: var(--text-primary);
     }
     .btn-outline {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px; letter-spacing: 0.1em;
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
-      padding: 8px 16px;
-      border: 1px solid var(--border);
+      padding: 8px 18px;
+      border: 1px solid var(--border-med);
       background: transparent;
-      color: var(--muted);
+      color: var(--text-secondary);
       cursor: pointer;
       text-decoration: none;
       transition: all 0.2s;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      border-radius: 30px;
+      gap: 8px;
+      border-radius: 40px;
     }
-    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-light);
+    }
  
     .iframe-shell {
-      border: 1px solid var(--border);
+      border: 1px solid var(--border-light);
       border-top: none;
-      background: var(--surface);
+      background: var(--bg-surface);
       position: relative;
       min-height: 800px;
-      overflow: hidden;
       border-radius: 0 0 16px 16px;
-    }
-    .iframe-shell::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 3px;
-      background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3));
-      z-index: 2;
+      overflow: hidden;
     }
     .iframe-shell iframe {
       display: block;
@@ -310,77 +343,58 @@
       position: absolute;
       inset: 0;
       z-index: 10;
-      background: var(--surface);
+      background: var(--bg-surface);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 20px;
+      gap: 16px;
       transition: opacity 0.4s ease;
     }
     .loading-overlay.gone { opacity: 0; pointer-events: none; }
-    .loading-bar-track {
-      width: 180px;
-      height: 1px;
-      background: var(--border);
-      position: relative;
-      overflow: hidden;
+    .loading-spinner {
+      width: 32px;
+      height: 32px;
+      border: 2px solid var(--border-light);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
     }
-    .loading-bar-fill {
-      position: absolute;
-      top: 0;
-      left: -100%;
-      height: 100%;
-      width: 100%;
-      background: var(--accent);
-      animation: slide 1.2s ease-in-out infinite;
-    }
-    @keyframes slide {
-      from { left: -100%; }
-      to { left: 100%; }
-    }
+    @keyframes spin { to { transform: rotate(360deg); } }
     .loading-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      color: var(--muted);
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
       text-transform: uppercase;
     }
  
-    /* FOOTER - SIMPLE */
+    /* ========== FOOTER ========== */
     footer {
-      border-top: 1px solid var(--border);
-      padding: 20px 52px;
+      border-top: 1px solid var(--border-light);
+      padding: 24px 52px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: var(--bg);
+      background: var(--bg-surface);
     }
     .footer-left {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      color: var(--muted);
+      font-size: 11px;
+      color: var(--text-muted);
     }
-    .footer-links { display: flex; gap: 20px; }
+    .footer-links { display: flex; gap: 24px; }
     .footer-link {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      color: var(--muted);
+      font-size: 11px;
+      color: var(--text-muted);
       text-decoration: none;
       transition: color 0.2s;
     }
     .footer-link:hover { color: var(--accent); }
  
-    /* ANIMATIONS */
-    .reveal { opacity: 0; transform: translateY(16px); animation: revealUp 0.55s ease forwards; }
-    @keyframes revealUp { to { opacity: 1; transform: translateY(0); } }
-    .r1 { animation-delay: 0.05s; }
-    .r2 { animation-delay: 0.15s; }
-    .r3 { animation-delay: 0.25s; }
- 
-    /* RESPONSIVE */
+    /* ========== RESPONSIVE ========== */
     @media (max-width: 1000px) {
-      nav, .hero, .dash-selector, .viewer-wrap, footer, .section-label {
+      nav, .hero, .dash-selector, .viewer-wrap, .section-label, footer {
         padding-left: 24px;
         padding-right: 24px;
       }
@@ -391,24 +405,27 @@
     }
     @media (max-width: 600px) {
       .nav-tabs { gap: 2px; }
-      .nav-tab { padding: 6px 12px; font-size: 9px; }
+      .nav-tab { padding: 0 12px; font-size: 11px; }
       .dc-title { font-size: 18px; }
-      .dc-desc { font-size: 11px; }
+      .dc-desc { font-size: 12px; }
     }
+ 
+    /* fade-in animations */
+    .reveal { opacity: 0; transform: translateY(16px); animation: revealUp 0.55s ease forwards; }
+    @keyframes revealUp { to { opacity: 1; transform: translateY(0); } }
+    .r1 { animation-delay: 0.05s; }
+    .r2 { animation-delay: 0.15s; }
+    .r3 { animation-delay: 0.25s; }
   </style>
 </head>
 <body>
-<div class="blob blob-1"></div>
-<div class="blob blob-2"></div>
-<div class="blob blob-3"></div>
- 
 <div class="page">
  
   <nav>
     <div class="nav-left">
-      <span class="nav-wordmark">Analytics Report</span>
+      <span class="nav-wordmark">CREDIT ANALYTICS</span>
       <div class="nav-sep"></div>
-      <span class="nav-title-short">Credit Risk &amp; Financial Behavior</span>
+      <span class="nav-title-short">Risk & Financial Behavior Study</span>
     </div>
     <div class="nav-tabs">
       <button class="nav-tab active" data-section="hero">Overview</button>
@@ -418,10 +435,10 @@
  
   <!-- HERO - Simplified -->
   <section class="hero" id="hero">
-    <div class="hero-eyebrow reveal r1">Credit Analytics Study</div>
+    <div class="hero-eyebrow reveal r1">Financial Intelligence Report</div>
     <h1 class="reveal r2">Customer <span>Credit Risk</span> &amp; Financial Behavior Analysis</h1>
     <p class="hero-abstract reveal r3">
-      A comprehensive analytical study examining key drivers of credit risk across a customer lending portfolio — combining loan characteristics, demographic profiling, and transaction-level behavioral data to enable data-driven lending decisions and proactive risk monitoring.
+      A comprehensive analytical study examining key drivers of credit risk across a customer lending portfolio — integrating loan characteristics, demographic profiling, and transaction-level behavioral data to enable data-driven lending decisions and proactive risk monitoring.
     </p>
   </section>
  
@@ -434,15 +451,14 @@
   <div class="dash-selector">
     <div class="dash-card active reveal r2" data-dash="1" id="card-1">
       <div class="dash-card-inner">
-        <div class="dc-num">Dashboard 01 — Credit Risk Drivers</div>
-        <div class="dc-title">Risk Drivers &amp; Portfolio Exposure</div>
-        <div class="dc-desc">Examines loan characteristics, customer demographics, and portfolio-level risk distribution. Identifies how loan size, duration, intensity, and job category contribute to default likelihood — providing a macro view of portfolio credit health.</div>
+        <div class="dc-num">Dashboard 01</div>
+        <div class="dc-title">Credit Risk Drivers</div>
+        <div class="dc-desc">Examines loan characteristics, customer demographics, and portfolio-level risk distribution — identifying how loan size, duration, and job category contribute to default likelihood.</div>
         <div class="dc-tags">
           <span class="dc-tag risk">Risk Distribution</span>
           <span class="dc-tag">Loan Characteristics</span>
           <span class="dc-tag">Demographics</span>
-          <span class="dc-tag amber">Credit Intensity</span>
-          <span class="dc-tag">Job Category</span>
+          <span class="dc-tag warning">Credit Intensity</span>
         </div>
       </div>
       <div class="dc-footer">
@@ -453,14 +469,13 @@
  
     <div class="dash-card reveal r3" data-dash="2" id="card-2">
       <div class="dash-card-inner">
-        <div class="dc-num">Dashboard 02 — Customer Financial Behavior</div>
-        <div class="dc-title">Behavioral &amp; Cash Flow Analytics</div>
-        <div class="dc-desc">Analyzes transaction-level financial behavior — including net cash flow, spending patterns, and transaction volatility — to identify high-risk customer segments and support early-warning detection for proactive credit management.</div>
+        <div class="dc-num">Dashboard 02</div>
+        <div class="dc-title">Customer Financial Behavior</div>
+        <div class="dc-desc">Analyzes transaction-level financial behavior — net cash flow, spending patterns, and volatility — to identify high-risk segments and support early-warning detection.</div>
         <div class="dc-tags">
-          <span class="dc-tag amber">Transaction Behavior</span>
+          <span class="dc-tag warning">Transaction Behavior</span>
           <span class="dc-tag safe">Cash Flow Stability</span>
           <span class="dc-tag risk">High-Risk Segments</span>
-          <span class="dc-tag">Loan Decision Support</span>
         </div>
       </div>
       <div class="dc-footer">
@@ -475,7 +490,7 @@
     <div class="viewer-topbar">
       <div class="vtb-left">
         <div class="vtb-indicator"></div>
-        <span class="vtb-name" id="vtb-name">Dashboard 1 — Credit Risk Drivers</span>
+        <span class="vtb-name" id="vtb-name">Credit Risk Drivers</span>
       </div>
       <div>
         <a id="open-link"
@@ -485,8 +500,8 @@
     </div>
     <div class="iframe-shell">
       <div class="loading-overlay" id="loading">
-        <div class="loading-label">Loading visualization</div>
-        <div class="loading-bar-track"><div class="loading-bar-fill"></div></div>
+        <div class="loading-spinner"></div>
+        <span class="loading-label">Loading dashboard</span>
       </div>
       <iframe
         id="viz-iframe"
@@ -499,7 +514,7 @@
  
   <!-- FOOTER -->
   <footer>
-    <span class="footer-left">Customer Credit Risk & Financial Behavior Analysis — Analytical Study</span>
+    <span class="footer-left">Customer Credit Risk & Financial Behavior Analysis — Financial Intelligence Report</span>
     <div class="footer-links">
       <a class="footer-link" href="https://public.tableau.com/views/IntegratedCreditRiskCustomerBehaviorAnalyticsDashboard/Dashboard1-CreditRiskDrivers" target="_blank">Dashboard 1 ↗</a>
       <a class="footer-link" href="https://public.tableau.com/views/IntegratedCreditRiskCustomerBehaviorAnalyticsDashboard/Dashboard2CustomerFinancialBehavior" target="_blank">Dashboard 2 ↗</a>
@@ -511,13 +526,13 @@
 <script>
   const DASHBOARDS = {
     1: {
-      name: 'Dashboard 1 — Credit Risk Drivers',
-      src:  'https://public.tableau.com/views/IntegratedCreditRiskCustomerBehaviorAnalyticsDashboard/Dashboard1-CreditRiskDrivers?:embed=y&:showVizHome=no&:toolbar=yes&:tabs=no&:animate_transition=yes&:display_count=n&:language=en-US',
+      name: 'Credit Risk Drivers',
+      src: 'https://public.tableau.com/views/IntegratedCreditRiskCustomerBehaviorAnalyticsDashboard/Dashboard1-CreditRiskDrivers?:embed=y&:showVizHome=no&:toolbar=yes&:tabs=no&:animate_transition=yes&:display_count=n&:language=en-US',
       link: 'https://public.tableau.com/views/IntegratedCreditRiskCustomerBehaviorAnalyticsDashboard/Dashboard1-CreditRiskDrivers'
     },
     2: {
-      name: 'Dashboard 2 — Customer Financial Behavior',
-      src:  'https://public.tableau.com/views/IntegratedCreditRiskCustomerBehaviorAnalyticsDashboard/Dashboard2CustomerFinancialBehavior?:embed=y&:showVizHome=no&:toolbar=yes&:tabs=no&:animate_transition=yes&:display_count=n&:language=en-US',
+      name: 'Customer Financial Behavior',
+      src: 'https://public.tableau.com/views/IntegratedCreditRiskCustomerBehaviorAnalyticsDashboard/Dashboard2CustomerFinancialBehavior?:embed=y&:showVizHome=no&:toolbar=yes&:tabs=no&:animate_transition=yes&:display_count=n&:language=en-US',
       link: 'https://public.tableau.com/views/IntegratedCreditRiskCustomerBehaviorAnalyticsDashboard/Dashboard2CustomerFinancialBehavior'
     }
   };
@@ -566,7 +581,7 @@
   iframe.onload = () => {
     iframeLoadTimer = setTimeout(() => {
       loadingOverlay.classList.add('gone');
-    }, 600);
+    }, 500);
   };
   
   iframe.onerror = () => {
@@ -602,4 +617,3 @@
 </script>
 </body>
 </html>
-```
