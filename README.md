@@ -1,171 +1,144 @@
 # Customer Credit Risk & Financial Behavior Analysis
 
-## Project Overview
+## **Project Overview**
 
-This project presents a comprehensive data-driven analysis of customer credit risk and financial behavior, designed to simulate real-world banking and investment decision-making.
+This project presents a **data-driven analysis of customer credit risk and financial behavior**, simulating real-world banking and investment decision-making.
 
-By combining customer demographic data with transaction-level financial activity, the project aims to uncover the key drivers of credit risk and provide actionable insights for improving lending strategies, risk assessment, and customer segmentation.
-
----
-
-## Objectives
-
-* Identify the primary factors influencing credit risk
-* Analyze customer financial behavior and spending patterns
-* Develop risk-based customer segmentation
-* Simulate data-driven loan decision support
-* Build interactive dashboards for business stakeholders
+By combining **customer demographics** with **transaction-level financial activity**, the project identifies the key drivers of credit risk, uncovers patterns in financial behavior, and provides actionable insights for **risk assessment, customer segmentation, and loan decision support**.
 
 ---
 
-## Datasets Used
+## **Objectives**
 
-This project integrates two datasets:
-
-### 1. German Credit Data
-
-* Customer demographics (Age, Sex, Job)
-* Financial attributes (Credit Amount, Duration)
-* Account information (Savings, Checking)
-* Target variable: **Risk Level**
-
-### 2. Bank Transaction Data
-
-* Transaction activity (Total Transactions, Avg Transaction)
-* Financial flows (Total Credit, Total Debit)
-* Account balance behavior (Min/Max Balance)
-* Channel usage (ATM, Branch, Online)
+* Identify the primary factors influencing credit risk.
+* Analyze customer financial behavior and spending patterns.
+* Develop risk-based customer segmentation.
+* Simulate data-driven loan decision support.
+* Build interactive dashboards for business stakeholders.
 
 ---
 
-## Data Preparation
+## **Datasets**
 
-* Cleaned missing and inconsistent values
-* Standardized categorical variables
-* Merged datasets using `CustomerID`
-* Ensured consistency across 1000 customer records
+This project integrates **two datasets** with 1,000 customers each:
 
----
+**1. German Credit Data**
 
-## Feature Engineering
+* Demographics: Age, Sex, Job
+* Financial attributes: Credit Amount, Duration
+* Account info: Savings, Checking
+* Target variable: Risk Level
 
-To enhance analytical depth, several calculated fields were created:
+**2. Bank Transaction Data**
 
-* **Net Cash Flow** = Total Received – Total Spent
-* **Transaction Volatility** = Variability in transaction patterns
-* **Credit Intensity** = Loan burden relative to financial activity
-* **Customer Risk Score** = Composite risk indicator
-* **Risk Flag** = Binary classification for high-risk customers
-
----
-
-## Tableau Dashboards
-
-### Dashboard 1: Credit Risk Drivers
-
-This dashboard explores the core factors influencing customer credit risk.
-
-**Key Visualizations:**
-
-* Risk Distribution Overview
-* Risk Distribution by Age Group
-* Credit Amount vs Loan Duration
-* Credit Risk by Job Category
-* Credit Risk by Housing Status
-* Loan Intensity vs Risk
-
- **Key Insights:**
-
-* Younger customers exhibit higher credit risk
-* Larger loans and longer durations increase risk exposure
-* Lower job categories are associated with higher default likelihood
-* Homeownership strongly correlates with lower risk
-* High credit intensity signals financial stress
+* Transaction activity: Total Transactions, Avg Transaction
+* Financial flows: Total Credit, Total Debit
+* Account balance behavior: Min/Max Balance
+* Channel usage: ATM, Branch, Online
 
 ---
 
-### Dashboard 2: Customer Financial Behavior *(In Progress)*
+## **Data Preparation**
 
-This dashboard will analyze how transaction patterns and financial activity relate to risk.
-
-**Planned Focus Areas:**
-
-* Spending vs income behavior
-* Net cash flow distribution
-* Transaction volatility analysis
-* Channel usage patterns (ATM, Online, Branch)
+* The German Credit Data had 1,000 entries, while the Bank Transaction Data had 50,000 entries, so the datasets were not directly compatible.
+* Used Excel formulas to aggregate and summarize transaction-level data (e.g., total transactions, total spent, average transaction) per customer.
+* Added a CustomerID row to both datasets to create a common key for joining.
+* Performed an inner join in Tableau on CustomerID to combine demographic, credit, and transaction-level financial data.
+* Ensured the merged dataset contained 1,000 customer-level records, ready for analysis.
 
 ---
 
-### Dashboard 3: Customer Segmentation *(In Progress)*
+## **Feature Engineering**
 
-This dashboard will group customers into meaningful segments based on financial and risk characteristics.
+Several calculated fields were created to enhance analytical depth:
 
-**Planned Focus Areas:**
-
-* Risk score segmentation
-* Behavioral clustering
-* High-value vs high-risk customer identification
-
----
-
-### Dashboard 4: Loan Decision Support System *(In Progress)*
-
-This dashboard will simulate real-world banking decisions using risk indicators.
-
-**Planned Features:**
-
-* Loan approval simulation
-* Risk flag monitoring
-* Expected loss estimation
-* High-risk customer identification
+* **Net Cash Flow:** Total Received – Total Spent
+* **Transaction Volatility:** Variability in transaction patterns
+* **Credit Intensity:** Loan burden relative to financial activity
+* **Customer Risk Score:** Composite risk indicator
+* **Risk Flag:** Binary classification for high-risk customers
 
 ---
 
-### Dashboard 5: Executive Summary *(In Progress)*
+## **Dashboards**
 
-A high-level dashboard designed for decision-makers, summarizing key insights and business impact.
+### **Dashboard 1: Credit Risk Drivers**
+
+**Purpose:** Identify core factors influencing customer credit risk.
+
+**Key Visuals & Insights:**
+
+1. **Risk Distribution Overview:** Shows overall portfolio risk; X% of customers are high risk.
+2. **Credit Amount vs Loan Duration:** Longer, larger loans cluster in high risk.
+3. **Loan Intensity vs Risk:** High-intensity loans indicate repayment pressure.
+4. **Credit Risk by Job Category:** Lower employment stability correlates with higher risk.
+
+**Filters:** Age Group, Housing Status, Sex
+**Colors:** Red = High Risk, Green = Low Risk
+
+**Caption Example:**
+
+> “This dashboard highlights the key drivers of credit risk, combining loan characteristics and customer demographics to provide actionable insights for portfolio monitoring.”
 
 ---
 
-## Tools & Technologies
+### **Dashboard 2: Customer Financial Behavior**
 
-* **Tableau** – Data visualization and dashboard development
-* **Python / Excel** – Data cleaning and preprocessing
-* **GitHub** – Project version control and portfolio presentation
+**Purpose:** Analyze how transaction patterns and financial activity relate to risk.
+
+**Key Visuals & Insights:**
+
+1. **Spending vs Income Behavior:** Customers spending near or above income show elevated risk.
+2. **Net Cash Flow Distribution Across Risk Levels:** Negative net cash flow correlates with high risk.
+3. **Transaction Volatility vs Credit Amount:** High volatility and large loans indicate repayment stress.
+4. **Net Cash Flow vs Transaction Volatility:** Highlights high-risk customers with unstable cash flow.
+5. **Customer Segmentation:** Clusters customers by financial behavior and risk profile.
+6. **Loan Decision Support – Risk Score vs Credit Intensity:** Shows high-risk customers under repayment pressure.
+
+**Filters:** Age Group, Housing Status, Sex
+**Colors:** Red = High Risk, Green = Low Risk
+
+**Caption Example:**
+
+> “This dashboard provides a detailed view of customer financial behavior and highlights high-risk segments based on cash flow, transaction patterns, and credit intensity.”
 
 ---
 
 ## Dashboard Preview
-
-<img width="928" height="620" alt="image" src="https://github.com/user-attachments/assets/0dbf02ea-f2f4-4e97-8e03-030cf083d543" />
-
----
-
-## Business Value
-
-This project demonstrates how data can be leveraged to:
-
-* Improve credit risk assessment
-* Enhance customer segmentation strategies
-* Support data-driven lending decisions
-* Identify high-risk and high-value customers
-* Optimize financial product offerings
+<img width="958" height="634" alt="image" src="https://github.com/user-attachments/assets/c289323e-21a0-41a3-8b00-c0e2c2a9490f" />
 
 ---
 
-## Future Improvements
+## **Technical Skills Demonstrated**
 
-* Build predictive models (e.g., Logistic Regression, Random Forest)
-* Integrate real-time risk scoring
-* Enhance segmentation using clustering algorithms
-* Deploy dashboards for interactive web access
+* **Data Cleaning & Preprocessing:** Handling missing values, categorical encoding, dataset merging.
+* **Feature Engineering:** Created financial metrics (Credit Intensity, Transaction Volatility, Customer Risk Score).
+* **Data Visualization:** Built interactive Tableau dashboards with filters, KPIs, and tooltips.
+* **Banking & Financial Analytics:** Identified risk drivers, portfolio exposure, and customer segmentation.
+* **Business Storytelling:** Presented insights clearly for decision-making.
 
 ---
 
-## Final Note
+## **Key Takeaways / Business Impact**
 
-This project is actively being developed, with additional dashboards and advanced analytics currently in progress. The goal is to evolve this into a complete, production-level credit risk analytics solution.
+* Portfolio health and risk exposure can be quickly assessed via **high-level KPIs**.
+* Loan size, duration, and intensity are strong predictors of default risk.
+* Employment and housing status provide demographic context for risk assessment.
+* Transaction behavior and net cash flow reveal hidden high-risk customers.
+* Interactive dashboards allow stakeholders to explore segments and make informed decisions.
+
+---
+
+## **Future Work / Extensions**
+
+* Integrate more granular behavioral features (e.g., payment delays, overdrafts).
+* Build predictive models for loan default probability.
+* Extend segmentation to identify high-value, low-risk customers.
+* Simulate a **Loan Decision Support System** using risk scores and credit intensity.
+
+---
+
+
 
 
 
