@@ -105,7 +105,7 @@ Several calculated fields were created to enhance analytical depth:
 ---
 
 ## Dashboard Preview
-<img width="1088" height="723" alt="image" src="https://github.com/user-attachments/assets/462a79e3-c683-42a5-b390-1db41090c91d" />
+<img width="1083" height="719" alt="image" src="https://github.com/user-attachments/assets/c2ea0a61-ddf1-427a-ae79-402eb273cdb4" />
 
 ---
 
